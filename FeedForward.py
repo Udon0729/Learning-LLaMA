@@ -24,5 +24,5 @@ class FeedForward(nn.Module):
         # ReLU関数は負値をすべて0にするため、高いスパース性を得られるが、負値の入力で勾配が0になるため、dead neuron 問題が発生し学習がすすまない。
         # → Stochastic activations という手法があるらしい。
 
-        # F.silu()はPyTorchによるものだが、数学的にはLlaMA論文で言及されるswitch関数と同じもの。
+        # F.silu()はPyTorchによるものだが、数学的にはLLaMA論文で言及されるswitch関数と同じもの。
         return self.w2(F.silu(self.w1(x) * self.w3(x)))
