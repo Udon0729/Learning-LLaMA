@@ -34,7 +34,7 @@ class Attention(nn.Module):
         xk = self.wk(x)
         xv = self.wv(x)
 
-        # 2. ヘッドごとに分割するためにリシェイプする
+        # 2. Headごとに分割するためにreshapeする
         # shape: (batch_size, seq_len, num_heads, head_dim)
         xq = xq.view(batch_size, seq_len, self.num_heads, self.head_dim)
         xk = xk.view(batch_size, seq_len, self.num_heads, self.head_dim)

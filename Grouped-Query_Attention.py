@@ -33,7 +33,7 @@ class Attention(nn.Module):
         self.num_heads = num_heads
 
         # num_kv_heads が指定されていなければ、通常のMHA (num_kv_heads = num_heads) になる。
-        # num_kv_headss = 1 なら MQA (Multi-Query Attention) になる
+        # num_kv_heads = 1 なら MQA (Multi-Query Attention) になる
         self.num_kv_heads = num_kv_heads if num_kv_heads is not None else num_heads
 
         # QのHead数とKVのHead数の比率 (グループサイズ)
