@@ -12,8 +12,8 @@ class FeedForward(nn.Module):
 
         # LLaMAでは、すべての線形層でbiasを使用しない。計算がシンプルとなり、学習が安定する。
         self.w1 = nn.Linear(dim, hidden_dim, bias=False)  # Gate projectioin
-        self.w2 = nn.Linear(hidden_dim, dim, bias=False)  # Up projection
-        self.w3 = nn.Linear(dim, hidden_dim, bias=False)  # Down projection
+        self.w2 = nn.Linear(hidden_dim, dim, bias=False)  # Down projection
+        self.w3 = nn.Linear(dim, hidden_dim, bias=False)  # Up projection
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         # 1. xをw1に通して SiLUを適用
